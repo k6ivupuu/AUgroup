@@ -1,0 +1,126 @@
+/* 1. Colour logic */
+:root {
+    /* Main Colors */
+    --main-dark: #1A3A5A;  /* Inkish blue) */
+    --main-light: #4A6A8A; /* Lighter shade of main blue */
+
+    /* Opposite Colors, unsure, dont like the orangy */
+    --opposite-dark: #A05000;  /* Dark orange */
+    --opposite-light: #D08030; /* Lighter  */
+    --red-dark: #A03050;   /* Dark red */
+    --red-light: #D06080;  /* Lighter shade of red */
+
+    /* Complementary */
+    --complement: #E6E0D4;  /* Soft beige, bg  */
+
+    /* Additional Shades */
+    --main-darker: #102030;  /* Darker ink, just in case contrast */
+    --text-dark: #333333;   /* Man text dark tone */
+    --text-light: #FFFFFF;  /* Main text on dark backgrounds */
+}
+
+/* 2. Resetting and normalization rules, leaving the placeholder here just for lols for now*/
+
+/* 3. Base styles */
+
+body {
+    color: var(--complement);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* 4. Typography my h1, h2 and h3 are currently more of an ha,ha and ha*/
+
+p {
+    color: var(--text-dark)
+}
+
+/* 5. Layout */
+
+main {
+    display: flex;
+    flex: 1;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.postfeed {
+    flex: 2;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.column {
+    flex: 1;
+    color: var(--main-light);
+    padding: 20px;
+    /*border: 1px solid #ccc;*/
+}
+
+/* 6. Components */
+
+nav {
+    background-color: var(--main-dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 2em;
+    text-align: justify;
+}
+
+nav ul li a {
+    color: var(--opposite-light);
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+nav ul li a:hover {
+    color: var(--complement);
+    text-decoration: underline;
+}
+
+footer {
+    background-color: var(--complement);
+    padding: 20px;
+    text-align: center;
+}
+
+/* 7. Responsiveness */
+
+/* Mobile view */
+@media (max-width: 768px) {
+
+    main {
+        flex-direction: column;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .column, .postfeed {
+        width: 100%;
+    }
+}
+

@@ -1,22 +1,44 @@
 <!DOCTYPE html>
 <!-- For the homework I need to create an "index" page
     This is basically like a standard homepage, header, footer and
-    three columns where blogposts run in the middle -->
+    three columns where blogposts run in the middle
+    -->
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title> Greetings from K6ivupuu</title>
-</head>
-<body>
-    <header>
-        <h1>Greetings! Here will be the menu / navigation bar</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="addPost.html">Add Post</a></li>
-            <li><p>Some text and stuff</p></li>
-        </ul>
-    </nav>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Greetings from K6ivupuu</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
 
-</body>
+    <!-- This is the menu in essence -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="addPost.html">Add Post</a></li>
+            </ul>
+        </nav>
+
+        <!-- Okay, so let's run the postfeed here,
+            we can run a class selector for postfeed and
+            ID selecter for posts themselves perhaps -->
+
+        <main>
+            <div class="container">
+                <div class="column"></div>
+                <div class="postfeed">
+                    <h2>Postfeed</h2>
+                    <p>Let's run the posts here</p>
+                </div>
+                <div class="column"></div>
+            </div>
+        </main>
+
+        <!-- And also footer -->
+        <footer>
+            <p>Some footer text</p>
+        </footer>
+
+    </body>
+</html>
