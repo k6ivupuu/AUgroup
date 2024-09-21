@@ -69,7 +69,7 @@ main {
 
 /* 6. Components */
 
-nav {
+.nav-container {
     background-color: var(--main-dark);
     display: flex;
     justify-content: space-between;
@@ -77,27 +77,43 @@ nav {
     padding: 1em 2em;
 }
 
-nav ul {
+.nav-container ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
     display: flex;
 }
 
-nav ul li {
+.nav-container ul li {
     margin-left: 2em;
     text-align: justify;
 }
 
-nav ul li a {
+.nav-container ul li a {
     color: var(--opposite-light);
     text-decoration: none;
     font-size: 1.1em;
 }
 
-nav ul li a:hover {
+.nav-container ul li a:hover {
     color: var(--complement);
     text-decoration: underline;
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+}
+
+.login-link {
+    color: var(--opposite-light);
+    display: flex;
+    align-items: center;
+}
+
+.user-icon {
+    color: var(--opposite-light);
+    margin-right: 1em;
 }
 
 footer {

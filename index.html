@@ -13,12 +13,21 @@
     <body>
 
     <!-- This is the menu in essence -->
-        <nav>
+        <div class="nav-container">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="addPost.html">Add Post</a></li>
             </ul>
-        </nav>
+            <div class="login-container">
+                <a href="login.html" class="login-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="user-icon">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span>Login</span>
+                </a>
+            </div>
+        </div>
 
         <!-- Okay, so let's run the postfeed here,
             we can run a class selector for postfeed and
@@ -28,8 +37,62 @@
             <div class="container">
                 <div class="column"></div>
                 <div class="postfeed">
-                    <h2>Postfeed</h2>
-                    <p>Let's run the posts here</p>
+                    <article id="post-atomic-habits" class="post">
+                        <h3>Building Better Habits with "Atomic Habits"</h3>
+                        <p>James Clear's "Atomic Habits" offers a proven framework for improving every day. Learn how small changes can lead to remarkable results in your personal and professional life.</p>
+                        <time datetime="2024-09-15">September 15, 2024</time>
+                        <div class="attachment">
+                            <a href="#">Habit_tracker_template.pdf</a>
+                        </div>
+                    </article>
+
+                    <article id="post-infinity-beyond" class="post">
+                        <h3>Space Exploration Insights from "To Infinity and Beyond"</h3>
+                        <p>Buzz Aldrin's "To Infinity and Beyond" provides a fascinating look at the future of space exploration. Discover the potential of Mars colonization and the challenges we face in becoming a multi-planetary species.</p>
+                        <time datetime="2024-09-10">September 10, 2024</time>
+                        <div class="attachment">
+                            <a href="#">Space_exploration_timeline.png</a>
+                        </div>
+                    </article>
+
+                    <article id="post-digital-minimalism" class="post">
+                        <h3>Embracing "Digital Minimalism" in a Hyperconnected World</h3>
+                        <p>Cal Newport's "Digital Minimalism" offers a philosophy of technology use in a noisy world. Learn strategies to reclaim your time and attention from the constant buzz of digital life.</p>
+                        <time datetime="2024-09-05">September 5, 2024</time>
+                        <div class="attachment">
+                            <a href="#">Digital_detox_guide.docx</a>
+                        </div>
+                    </article>
+
+                    <article id="post-21-lessons" class="post">
+                        <h3>Navigating the Future with "21 Lessons for the 21st Century"</h3>
+                        <p>Yuval Noah Harari's "21 Lessons for the 21st Century" provides crucial insights into our rapidly evolving world. Explore how technological disruption, political upheaval, and climate change will shape our future.</p>
+                        <time datetime="2024-08-28">August 28, 2024</time>
+                    </article>
+
+                    <article id="post-starry-messenger" class="post">
+                        <h3>Cosmic Perspectives on Civilization: Insights from "Starry Messenger"</h3>
+                        <p>Neil deGrasse Tyson's "Starry Messenger" offers a unique view on earthly conflicts through the lens of cosmic perspective. Discover how looking at the stars can change our view of life on Earth.</p>
+                        <time datetime="2024-08-20">August 20, 2024</time>
+                        <div class="attachment">
+                            <a href="#">Cosmic_perspective_infographic.jpg</a>
+                        </div>
+                    </article>
+
+                    <article id="post-jellyfish" class="post">
+                        <h3>Unraveling Mysteries with "Gopler aeldes baglaens"</h3>
+                        <p>This intriguing book (title translates to "Jellyfishes age backwards") explores fascinating biological phenomena. Learn about the unique lifecycle of jellyfish and what it might teach us about aging.</p>
+                        <time datetime="2024-08-15">August 15, 2024</time>
+                    </article>
+
+                    <article id="post-meeting-cookbook" class="post">
+                        <h3>Mastering Meetings with "Koosolekute kokaraamat"</h3>
+                        <p>"Koosolekute kokaraamat" (Meeting Cookbook) provides practical tips for running effective meetings. Discover how to make your meetings more productive, engaging, and time-efficient.</p>
+                        <time datetime="2024-08-08">August 8, 2024</time>
+                        <div class="attachment">
+                            <a href="#">Effective_meeting_checklist.pdf</a>
+                        </div>
+                    </article>
                 </div>
                 <div class="column"></div>
             </div>
