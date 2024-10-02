@@ -24,8 +24,21 @@
         </div>
     </div>
 
-    <main>
-        <p>Text incoming - no adding posts for now.</p>
+    <main class="post-main">
+        <div class="post-box">
+            <form id="post-form">
+                <div class="textarea-container">
+                    <p>Post body</p>
+                    <textarea id="text" required placeholder="textarea" rows="5" cols="10"></textarea>
+                </div>
+                <div class="file-container">
+                    <p>Select file</p>
+                    <button type="button" id="file-button" disabled>Choose file</button>
+                </div>
+                <button type="button" id="post-button" onclick="window.location.href='index.html';">Create post</button>
+            </form>
+        </div>       
     </main>
+
     </body>
 </html>

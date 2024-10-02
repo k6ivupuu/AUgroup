@@ -176,6 +176,13 @@ footer {
     font-weight: bold;
 }
 
+.input-field {
+    width: 60%; 
+    margin-bottom: 10px; 
+    padding: 3px;
+    border: 1px solid #ccc; 
+}
+
 #login-button {
     width: 100%;
     padding: 10px;
@@ -222,4 +229,87 @@ footer {
     #login-button {
         padding: 10px; 
     }
+}
+
+/* Post screen */
+.post-main {
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    height: 100vh; 
+    width: 100vw; 
+    margin: 0; 
+    padding: 0; 
+    background-color: white; 
+}
+
+.post-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--complement); 
+    border-radius: 10px;
+    padding: 40px 30px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    width: 350px; 
+    max-width: 90%; 
+    text-align: center;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    resize: vertical; 
+}
+
+.textarea-container,
+.file-container {
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 15px; 
+}
+
+
+.textarea-container p,
+.file-container p {
+    margin: 0 10px 0 0; 
+    font-weight: bold; 
+}
+
+#post-button {
+    width: 100%;
+    padding: 10px;
+    background-color: grey; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: not-allowed; 
+    opacity: 0.5; 
+    transition: background-color 0.3s ease, opacity 0.3s ease; 
+    background-color: var(--main-dark); 
+    cursor: pointer; 
+    opacity: 1; 
+    pointer-events: auto; 
+}
+
+#post-button:hover {
+    background-color: var(--main-darker);
+}
+
+
+#file-button {
+    width: 100%;
+    padding: 10px;
+    background-color: grey; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: not-allowed; 
+    opacity: 0.5; 
+    transition: background-color 0.3s ease, opacity 0.3s ease; 
 }
