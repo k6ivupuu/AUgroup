@@ -56,11 +56,23 @@ main {
     border: 1px solid #FFFFFF;
 }
 
+article {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--main-darker);
+}
+
+.like-button {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
 /* 3. Typography*/
 
 h1, h2, h3, p  {
     color: var(--main-dark);
-    margin: 5;
 }
 
 h1 ~ p  {
@@ -69,6 +81,7 @@ h1 ~ p  {
 
 time {
     color: var(--red-dark);
+    align-content: center;
 }
 
 .nav-container ul li a {
@@ -119,6 +132,11 @@ time {
     border: 1px solid #ccc;
 }
 
+.attachment {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+
 .nav-container {
     background-color: var(--main-dark);
     display: flex;
@@ -153,6 +171,12 @@ time {
 .user-icon {
     color: var(--opposite-light);
     margin-right: 1em;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
 }
 
 .post-image {
