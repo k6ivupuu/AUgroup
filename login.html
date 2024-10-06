@@ -8,38 +8,36 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
+        <!-- This is the menu in essence -->
+        <nav class="nav-container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="addPost.html">Add Post</a></li>
+            </ul>
+            <div class="login-container">
+                <a href="login.html" class="login-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="user-icon">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span>Login</span>
+                </a>
+            </div>
+        </nav>
 
-    <nav class="nav-container">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="addPost.html">Add Post</a></li>
-        </ul>
-        <div class="login-container">
-            <a href="login.html" class="login-link">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="user-icon">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-                <span>Login</span>
-            </a>
-        </div>
-    </nav>
-
-    
-
-    <main class = "login-main">
-        <div class="login-box">
-            <h2 id="welcome-message">Welcome to PostIt</h2>
-            <a href="#" class="create-account">Create an account</a>
-            <p>or</p>
-            <p>Please log in</p>
-            <form id="login-form" action="index.html">
-                <input type="email" id="email" class="input-field" placeholder="Email" required>
-                <input type="password" id="password" class="input-field" placeholder="Password" required>
-                <button type="submit" id="login-button" >Log in</button>
-            </form>
-            <a href="#" class="forgot-password">Forgot password</a>
-        </div>       
-    </main>
+        <main class = "login-main">
+            <div class="login-box">
+                <h2 id="welcome-message">Welcome to PostIt</h2>
+                <a href="#" class="create-account">Create an account</a>
+                <p>or</p>
+                <p>Please log in</p>
+                <form id="login-form" action="index.html">
+                    <input type="email" id="email" class="input-field" placeholder="Email" required>
+                    <input type="password" id="password" class="input-field" placeholder="Password" required>
+                    <button type="submit" id="login-button" >Log in</button>
+                </form>
+                <a href="#" class="forgot-password">Forgot password</a>
+            </div>
+        </main>
     </body>
 </html>

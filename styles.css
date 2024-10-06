@@ -138,11 +138,14 @@ time {
 }
 
 .nav-container {
+    position: sticky;
+    top: 0;
     background-color: var(--main-dark);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1em 2em;
+
 }
 
 .nav-container ul {
