@@ -155,6 +155,12 @@ time {
     margin-right: 1em;
 }
 
+.post-image {
+    max-width: 100%; 
+    height: auto; 
+    width: 550px; 
+}
+
 footer {
     background-color: var(--complement);
     padding: 20px;
@@ -342,15 +348,4 @@ textarea {
     cursor: not-allowed; 
     opacity: 0.5; 
     transition: background-color 0.3s ease, opacity 0.3s ease; 
-}
-
-.post-image {
-    max-width: 100%; 
-    height: auto; 
-    width: 550px; 
-}
-.user-image{
-    max-width: 100%; 
-    height: auto; 
-    width: 30px; 
 }
