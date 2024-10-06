@@ -84,6 +84,7 @@ main {
     display: flex;
 }
 
+
 .nav-container ul li {
     margin-left: 2em;
     text-align: justify;
@@ -93,11 +94,14 @@ main {
     color: var(--opposite-light);
     text-decoration: none;
     font-size: 1.1em;
+    padding: 0.5em; 
+    border-radius: 5px;
 }
 
 .nav-container ul li a:hover {
-    color: var(--complement);
-    text-decoration: underline;
+    background-color: var(--complement); 
+    color: var(--main-dark); 
+    text-decoration: none; 
 }
 
 .login-container {
@@ -167,8 +171,14 @@ footer {
     text-align: center;
 }
 
+
 .login-box h2 {
-    color: var(--main-dark);
+    color: var(--main-dark); 
+    margin: 10px 0; 
+    font-weight: bold; 
+}
+.login-box h2 ~ p { /* Use a General Sibling Selector (e.g., div ~ p) */
+    color: var(--main-dark); 
 }
 
 .login-box label {
@@ -179,8 +189,14 @@ footer {
 .input-field {
     width: 60%; 
     margin-bottom: 10px; 
-    padding: 3px;
-    border: 1px solid #ccc; 
+    padding: 3px; 
+}
+.login-box > form > input { /* Use a Child Selector (e.g., div > p) */
+    border: 2px solid var(--main-darker); 
+}
+.input-field + .input-field { /* Use an Adjacent Sibling Selector (e.g., div + p)*/
+    border-style: double;
+    
 }
 
 #login-button {
@@ -222,7 +238,7 @@ footer {
     }
 
     .input-field {
-        height: 35px; 
+        height: 60px; 
         font-size: 13px; 
     }
 
