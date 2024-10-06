@@ -343,3 +343,14 @@ textarea {
     opacity: 0.5; 
     transition: background-color 0.3s ease, opacity 0.3s ease; 
 }
+
+.post-image {
+    max-width: 100%; 
+    height: auto; 
+    width: 550px; 
+}
+.user-image{
+    max-width: 100%; 
+    height: auto; 
+    width: 30px; 
+}
