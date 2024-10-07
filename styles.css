@@ -37,23 +37,10 @@ main {
     flex: 1;
 }
 
-/*Base flex-container for postfeed - base according to homepage postfeed*/
-.flex-container {
-    display: flex;
-    flex-direction: row;
-    max-width: 1800px;
-    margin: 0 auto;
-    padding: 0px;
-    width: 90%;
-    align-items: center;
-}
-
-/*General empty column*/
-.column {
-    flex: 1;
-    color: var(--main-light);
-    padding: 10px;
-    border: 1px solid #FFFFFF;
+footer {
+    background-color: var(--complement);
+    padding: 20px;
+    text-align: center;
 }
 
 article {
@@ -62,11 +49,12 @@ article {
     border-bottom: 1px solid var(--main-darker);
 }
 
-.like-button {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    resize: vertical;
 }
 
 /* 3. Typography*/
@@ -75,8 +63,18 @@ h1, h2, h3, p  {
     color: var(--main-dark);
 }
 
-h1 ~ p  {
+a {
+    color: var(--opposite-dark);
+}
+
+h1 ~ p, h2 ~ p  {
     color: var(--main-light);
+}
+
+.textarea-container p,
+.file-container p {
+    margin: 0 10px 0 0;
+    font-weight: bold;
 }
 
 time {
@@ -96,11 +94,31 @@ time {
     text-decoration: none; 
 }
 
-
 /* 4. Layout - modified where necessary / where base can't be used / not defined as base*/
 
 /*Add posts page main*/
-.post-main {
+
+/*Base flex-container for postfeed - base according to homepage postfeed*/
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0px;
+    width: 90%;
+    align-items: center;
+}
+
+/*General empty column*/
+.column {
+    flex: 1;
+    color: var(--main-light);
+    padding: 10px;
+    border: 1px solid #FFFFFF;
+}
+
+/*Post and login page*/
+.mainbox {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -111,16 +129,39 @@ time {
     background-color: white;
 }
 
-/*Login page main*/
-.login-main {
+.login-box {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-    padding: 0;
-    background-color: white;
+    background-color: var(--complement);
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    max-width: 90%;
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.post-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--complement);
+    border-radius: 10px;
+    padding: 40px 30px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    max-width: 90%;
+    text-align: center;
+}
+
+.textarea-container,
+.file-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
 }
 
 /* 6. Components */
@@ -165,6 +206,19 @@ time {
     align-items: center;
 }
 
+.input-field {
+    width: 60%;
+    margin-bottom: 10px;
+    padding: 3px;
+}
+
+.like-button {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
 .login-link {
     color: var(--opposite-light);
     display: flex;
@@ -188,12 +242,67 @@ time {
     width: auto; 
 }
 
-footer {
-    background-color: var(--complement);
-    padding: 20px;
-    text-align: center;
+#post-button {
+    width: 100%;
+    padding: 10px;
+    background-color: grey;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: not-allowed;
+    opacity: 0.5;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    background-color: var(--main-dark);
+    cursor: pointer;
+    opacity: 1;
+    pointer-events: auto;
 }
 
+#post-button:hover {
+    background-color: var(--main-darker);
+}
+
+
+#file-button {
+    width: 100%;
+    padding: 10px;
+    background-color: grey;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: not-allowed;
+    opacity: 0.5;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.login-box > form > input { /* Use a Child Selector (e.g., div > p) */
+    border: 2px solid var(--main-darker);
+}
+.input-field + .input-field { /* Use an Adjacent Sibling Selector (e.g., div + p)*/
+    border-style: double;
+}
+
+#login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+input:valid ~ input:valid ~ #login-button {
+    background-color: var(--main-dark);
+    cursor: pointer;
+    opacity: 1;
+    pointer-events: auto;
+}
 
 /* 7. Responsiveness */
 
@@ -228,145 +337,4 @@ footer {
     #login-button {
         padding: 10px;
     }
-}
-
-/*Would be good to use some sort of a logic for the CSS in general. Helps to locate more easily.*/
-
-/* Login screen stuff */
-
-.login-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--complement); 
-    border-radius: 10px;
-    padding: 40px 30px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-    width: 350px; 
-    max-width: 90%; 
-    text-align: center;
-}
-
-.login-box h2 {
-    color: var(--main-dark);
-}
-.login-box h2 ~ p { /* Use a General Sibling Selector (e.g., div ~ p) */
-    color: var(--main-light); 
-}
-
-.login-box label {
-    color: var(--main-dark);
-    font-weight: bold;
-}
-
-.input-field {
-    width: 60%; 
-    margin-bottom: 10px; 
-    padding: 3px; 
-}
-.login-box > form > input { /* Use a Child Selector (e.g., div > p) */
-    border: 2px solid var(--main-darker); 
-}
-.input-field + .input-field { /* Use an Adjacent Sibling Selector (e.g., div + p)*/
-    border-style: double;
-    
-}
-
-#login-button {
-    width: 100%;                      
-    padding: 10px;                    
-    background-color: var(--main-dark); 
-    color: white;                     
-    border: none;                     
-    border-radius: 5px;               
-    font-size: 16px;                  
-    cursor: pointer;                  
-    opacity: 1;                       
-    pointer-events: auto;             
-    
-}
-
-
-input:valid ~ input:valid ~ #login-button {
-    background-color: var(--main-dark); 
-    cursor: pointer;                    
-    opacity: 1;                         
-    pointer-events: auto;               
-}
-
-
-
-
-/* Post screen */
-
-.post-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--complement); 
-    border-radius: 10px;
-    padding: 40px 30px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-    width: 350px; 
-    max-width: 90%; 
-    text-align: center;
-}
-
-textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    resize: vertical; 
-}
-
-.textarea-container,
-.file-container {
-    display: flex; 
-    align-items: center; 
-    margin-bottom: 15px; 
-}
-
-
-.textarea-container p,
-.file-container p {
-    margin: 0 10px 0 0; 
-    font-weight: bold; 
-}
-
-#post-button {
-    width: 100%;
-    padding: 10px;
-    background-color: grey; 
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: not-allowed; 
-    opacity: 0.5; 
-    transition: background-color 0.3s ease, opacity 0.3s ease; 
-    background-color: var(--main-dark); 
-    cursor: pointer; 
-    opacity: 1; 
-    pointer-events: auto; 
-}
-
-#post-button:hover {
-    background-color: var(--main-darker);
-}
-
-
-#file-button {
-    width: 100%;
-    padding: 10px;
-    background-color: grey; 
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: not-allowed; 
-    opacity: 0.5; 
-    transition: background-color 0.3s ease, opacity 0.3s ease; 
 }
