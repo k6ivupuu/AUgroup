@@ -13,8 +13,5 @@ function createMenu() {
             </div>
         </nav>
     `;
-
     document.body.insertAdjacentHTML('afterbegin', menuHTML);
-}
-
-document.addEventListener('DOMContentLoaded', createMenu);
+};
