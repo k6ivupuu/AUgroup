@@ -1,0 +1,109 @@
+{
+  "Posts": [
+    {
+      "id": 1,
+      "reference": "tartu-2024",
+      "date": "2024-10-06",
+      "title": "Tartu 2024",
+      "content": "A great picture of Tartu town square.",
+      "image": "tartu.jpg",
+      "attachment": null
+    },
+    {
+      "id": 2,
+      "reference": "post-atomic-habits",
+      "date": "2024-09-15",
+      "title": "Building Better Habits with \"Atomic Habits\"",
+      "content": "James Clear's \"Atomic Habits\" offers a proven framework for improving every day. Learn how small changes can lead to remarkable results in your personal and professional life.",
+      "image": null,
+      "attachment": {
+        "name": "Habit_tracker_template.pdf",
+        "url": "#"
+      }
+    },
+    {
+      "id": 3,
+      "reference": "post-infinity-beyond",
+      "date": "2024-09-10",
+      "title": "Space Exploration Insights from \"To Infinity and Beyond\"",
+      "content": "Buzz Aldrin's \"To Infinity and Beyond\" provides a fascinating look at the future of space exploration. Discover the potential of Mars colonization and the challenges we face in becoming a multi-planetary species.",
+      "image": null,
+      "attachment": {
+        "name": "Space_exploration_timeline.png",
+        "url": "#"
+      }
+    },
+    {
+      "id": 4,
+      "reference": "post-digital-minimalism",
+      "date": "2024-09-05",
+      "title": "Embracing \"Digital Minimalism\" in a Hyperconnected World",
+      "content": "Cal Newport's \"Digital Minimalism\" offers a philosophy of technology use in a noisy world. Learn strategies to reclaim your time and attention from the constant buzz of digital life.",
+      "image": null,
+      "attachment": {
+        "name": "Digital_detox_guide.docx",
+        "url": "#"
+      }
+    },
+    {
+      "id": 5,
+      "reference": "post-21-lessons",
+      "date": "2024-08-28",
+      "title": "Navigating the Future with \"21 Lessons for the 21st Century\"",
+      "content": "Yuval Noah Harari's \"21 Lessons for the 21st Century\" provides crucial insights into our rapidly evolving world. Explore how technological disruption, political upheaval, and climate change will shape our future.",
+      "image": null,
+      "attachment": null
+    },
+    {
+      "id": 6,
+      "reference": "post-starry-messenger",
+      "date": "2024-08-20",
+      "title": "Cosmic Perspectives on Civilization: Insights from \"Starry Messenger\"",
+      "content": "Neil deGrasse Tyson's \"Starry Messenger\" offers a unique view on earthly conflicts through the lens of cosmic perspective. Discover how looking at the stars can change our view of life on Earth.",
+      "image": null,
+      "attachment": {
+        "name": "Cosmic_perspective_infographic.jpg",
+        "url": "#"
+      }
+    },
+    {
+      "id": 7,
+      "reference": "post-jellyfish",
+      "date": "2024-08-15",
+      "title": "Unraveling Mysteries with \"Gopler aeldes baglaens\"",
+      "content": "This intriguing book (title translates to \"Jellyfishes age backwards\") explores fascinating biological phenomena. Learn about the unique lifecycle of jellyfish and what it might teach us about aging.",
+      "image": null,
+      "attachment": null
+    },
+    {
+      "id": 8,
+      "reference": "post-meeting-cookbook",
+      "date": "2024-08-08",
+      "title": "Mastering Meetings with \"Koosolekute kokaraamat\"",
+      "content": "\"Koosolekute kokaraamat\" (Meeting Cookbook) provides practical tips for running effective meetings. Discover how to make your meetings more productive, engaging, and time-efficient.",
+      "image": null,
+      "attachment": {
+        "name": "Effective_meeting_checklist.pdf",
+        "url": "#"
+      }
+    },
+    {
+      "id": 9,
+      "reference": "post-psychology-money",
+      "date": "2024-09-19",
+      "title": "Learning about spenditure with \"Psychology of Money \"",
+      "content": "This provides some fancy thoughts about how we are manipulated by ourselves to do unwise decision.",
+      "image": null,
+      "attachment": null
+    },
+    {
+      "id": 10,
+      "reference": "post-nudge",
+      "date": "2024-09-23",
+      "title": "Positive Nudges with \"Nudge\"",
+      "content": "Discussing patriarchic democracy to positively influence the decisions of individuals and populations.",
+      "image": null,
+      "attachment": null
+    }
+  ]
+}
