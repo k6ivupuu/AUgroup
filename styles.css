@@ -12,6 +12,7 @@
 
     /* Complementary */
     --complement: #E6E0D4;  /* Soft beige, bg  */
+    --complement-unavailable: #999999; /* to gray out*/
 
     /* Additional Shades */
     --main-darker: #102030;  /* Darker ink, just in case contrast */
@@ -104,7 +105,7 @@ time {
     flex-direction: row;
     max-width: 1800px;
     margin: 0 auto;
-    padding: 0px;
+    padding: 0;
     width: 90%;
     align-items: center;
 }
@@ -201,6 +202,10 @@ time {
     text-align: justify;
 }
 
+.nav-container div a i {
+    padding-right: 10px;
+}
+
 .login-container {
     display: flex;
     align-items: center;
@@ -260,14 +265,13 @@ time {
 }
 
 #post-button:hover {
-    background-color: var(--main-darker);
+    background-color: var(--opposite-dark);
 }
-
 
 #file-button {
     width: 100%;
     padding: 10px;
-    background-color: grey;
+    background-color: var(--complement-unavailable);
     color: white;
     border: none;
     border-radius: 5px;
@@ -287,8 +291,8 @@ time {
 #login-button {
     width: 100%;
     padding: 10px;
-    background-color: gray;
-    color: white;
+    background-color: var(--complement-unavailable);
+    color: var(--complement);
     border: none;
     border-radius: 5px;
     font-size: 16px;
