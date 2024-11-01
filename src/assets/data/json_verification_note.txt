@@ -1,0 +1,5 @@
+I verified my json using https://jsonlint.com/
+
+Check image under assets/images/202411001_json_verify.png
+
+This image folder will also be used as src reference for images from posts in json file
