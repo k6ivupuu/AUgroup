@@ -19,7 +19,7 @@ fetch(url)
     .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
     });
-*/
+
 const url = 'https://gist.githubusercontent.com/Einsoor/07bc3cbf4b93bdc5f320b5711df64158/raw/22f7e82cfba54846c7e98e177b3a08e56361b4dc/posts.json';
 
 fetch(url)
@@ -36,7 +36,31 @@ fetch(url)
     .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
     });
+*/
 
+//fetch works the same with local and remote files, so we basically only need to change the url to the file path
+//just added another error message aswell
+
+const url = '/src/assets/data/posts.json'
+
+fetch(url)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        if (data.Posts) {
+            console.log('Fetched JSON data:', data);
+            renderPosts(data.Posts);
+        } else {
+            console.error('No posts found in the response data.');
+        }
+    })
+    .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+    });
 
 function renderPosts(posts) {
     const postFeed = document.querySelector('.postfeed');

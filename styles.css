@@ -211,6 +211,46 @@ time {
     align-items: center;
 }
 
+.bi-person-circle {
+    font-size: 1.5em;
+    color: var(--opposite-light);
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none; 
+    position: absolute;
+    right: 10px;
+    top: 3em;
+    background-color: var(--complement);
+    border: 1px solid var(--main-darker);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 150px;
+    z-index: 1;
+}
+
+.dropdown-menu p {
+    margin: 0;
+    color: var(--main-dark);
+}
+
+.dropdown-menu a {
+    color: var(--opposite-dark);
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+}
+
+.dropdown-menu a:hover {
+    color: var(--main-dark);
+}
+
+.show {
+    display: block;
+}
+
 .input-field {
     width: 60%;
     margin-bottom: 10px;
