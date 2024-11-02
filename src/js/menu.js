@@ -1,4 +1,11 @@
 function createMenu() {
+
+    let header = document.querySelector('header');
+    if (!header) {
+        header = document.createElement('header');
+        document.body.insertAdjacentHTML('afterbegin', header);
+    }
+
     const menuHTML = `
         <nav class="nav-container">
             <ul>
@@ -15,22 +22,29 @@ function createMenu() {
             </div>
         </nav>
     `;
-    document.body.insertAdjacentHTML('afterbegin', menuHTML);
 
-    const profileIcon = document.querySelector('.bi-person-circle');
+    header.innerHTML = menuHTML;
+
+    loginModuleDisplay();
+};
+
+    //Let's separate the functionalities, creating a menu
+    // and dropdown module visibility can be considered separate;
+
+function loginModuleDisplay() {
+
     const dropdownMenu = document.querySelector('.dropdown-menu');
 
-    //open menu when the icon is clicked
-    profileIcon.addEventListener('click', () => {
-        dropdownMenu.classList.toggle('show');
-    });
+    //I abbreviated this a lot. I do not think you should write toggle function twice.
+    //This event.target checks clicked element, then checks what was closest,
+    //if you clicked on bi-person, then it sets "classlist['toggle'], else classlist.remove
+    //and it also appends "show" so it becomes classList.toggle('show') or classList.remove('show')
+    //Please remove comment if read and understood :D
 
-    //close menu when clicked outside of the dropdown
-    document.addEventListener('click', (event) => {
-        if (!event.target.closest('.login-container')) {
-            dropdownMenu.classList.remove('show');
-        }
-    });
+    document.addEventListener('click', (event) =>
+        dropdownMenu.classList[event.target.closest('.bi-person-circle') ? 'toggle' : 'remove']('show')
+    );
+
 }
 
 createMenu();
