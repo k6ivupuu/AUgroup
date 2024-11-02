@@ -15,3 +15,4 @@ function createMenu() {
     `;
     document.body.insertAdjacentHTML('afterbegin', menuHTML);
 };
+createMenu();
