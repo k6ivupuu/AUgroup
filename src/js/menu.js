@@ -1,19 +1,20 @@
-function createMenu() {
+document.addEventListener("DOMContentLoaded", () => {
+    function createMenu() {
 
-    let header = document.querySelector('header');
-    if (!header) {
-        header = document.createElement('header');
-        document.body.insertAdjacentHTML('afterbegin', header);
-    }
+        let header = document.querySelector('header');
+        if (!header) {
+            header = document.createElement('header');
+            document.body.insertAdjacentHTML('afterbegin', header);
+        }
 
-    const menuHTML = `
+        const menuHTML = `
         <nav class="nav-container">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="addPost.html">Add Post</a></li>
             </ul>
             <div class="login-container">
-                <i class="bi bi-person-circle"></i>
+                <i class="bi-person-circle"></i>
                 <div class="dropdown-menu">
                     <p>John Doe</p>
                     <p>john.doe@ut.ee</p>
@@ -21,12 +22,14 @@ function createMenu() {
                 </div>
             </div>
         </nav>
-    `;
+        `;
 
-    header.innerHTML = menuHTML;
+        header.innerHTML = menuHTML;
+        loginModuleDisplay();
+    };
 
-    loginModuleDisplay();
-};
+    createMenu();
+});
 
     //Let's separate the functionalities, creating a menu
     // and dropdown module visibility can be considered separate;
@@ -44,7 +47,5 @@ function loginModuleDisplay() {
     document.addEventListener('click', (event) =>
         dropdownMenu.classList[event.target.closest('.bi-person-circle') ? 'toggle' : 'remove']('show')
     );
+};
 
-}
-
-createMenu();

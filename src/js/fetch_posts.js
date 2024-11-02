@@ -1,8 +1,11 @@
-/* So this is the basics for fetching the posts from the URL specified in const
-*  The json file is located under a personal domain that team member owns,
-*  And using cpanel, the json file was manually uploaded and a simple php file generated to be able to fetch the json data.
-* */
-/*
+/* So this is the basics for fetching the posts from the URL specified in a const */
+
+/*  1st attempt by Kaarel was to ownhost the JSON to just test out for the sake of the cours.
+*      For that, the json file was located under a personal domain that team member owns,
+*      And using cpanel, the json file was manually uploaded and a simple php file generated to be able to fetch the json data.
+*      This basically just allowed to fetch the full json, so not really useful as such for the homework.
+*   So the attempt with some mock fields as a basic test:
+
 const url = 'http://koivupuu.ee/serve-json.php';
 
 fetch(url)
@@ -19,6 +22,12 @@ fetch(url)
     .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
     });
+*/
+
+/* This is update from Henri,
+*      fetch works the same with local and remote files, so we basically only need to change the url to the file path
+*      just added another error message aswell
+*
 
 const url = 'https://gist.githubusercontent.com/Einsoor/07bc3cbf4b93bdc5f320b5711df64158/raw/22f7e82cfba54846c7e98e177b3a08e56361b4dc/posts.json';
 
@@ -36,11 +45,12 @@ fetch(url)
     .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
     });
+
 */
 
-//fetch works the same with local and remote files, so we basically only need to change the url to the file path
-//just added another error message aswell
-
+/* Mia - Changing fetch to use json in the project
+*
+* */
 const url = '/src/assets/data/posts.json'
 
 fetch(url)

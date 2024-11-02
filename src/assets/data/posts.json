@@ -18,8 +18,8 @@
       "title": "Building Better Habits with \"Atomic Habits\"",
       "content": "James Clear's \"Atomic Habits\" offers a proven framework for improving every day. Learn how small changes can lead to remarkable results in your personal and professional life.",
       "image": {
-        "name": "habit_tracker_template.png",
-        "src": "/src/assets/images/habit_tracker_template.png"
+        "name": "atomic_habits.png",
+        "src": "/src/assets/images/atomic_habits.png"
       }
     },
     {
@@ -59,8 +59,8 @@
       "title": "Cosmic Perspectives on Civilization: Insights from \"Starry Messenger\"",
       "content": "Neil deGrasse Tyson's \"Starry Messenger\" offers a unique view on earthly conflicts through the lens of cosmic perspective. Discover how looking at the stars can change our view of life on Earth.",
       "image": {
-        "name": "cosmic_perspective_infographic.png",
-        "src": "/src/assets/images/cosmic_perspective_infographic.png"
+        "name": "cosmic_perspective.png",
+        "src": "/src/assets/images/cosmic_perspective.png"
       }
     },
     {
