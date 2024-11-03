@@ -72,6 +72,21 @@ fetch(url)
         console.error('There was a problem with the fetch operation:', error);
     });
 
+/* Alternatively we could have done, and then remove defer and call out in body;
+async function fetchData() {
+    try {
+        const response = await fetch(url)
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        renderPosts(data.Posts)
+    } catch (e) {
+        console.error("Error:", e);
+    }
+}
+*/
+
 function renderPosts(posts) {
     const postFeed = document.querySelector('.postfeed');
     postFeed.innerHTML = ''; 

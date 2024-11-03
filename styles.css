@@ -51,8 +51,8 @@ article {
 }
 
 textarea {
-    width: 100%;
-    padding: 10px;
+    width: 90%;
+    padding: 15px;
     font-size: 14px;
     border: 1px solid #ccc;
     resize: vertical;
@@ -60,32 +60,25 @@ textarea {
 
 /* 3. Typography*/
 
-h1, h2, h3, p  {
+h1, h2, h3 {
     color: var(--main-dark);
+    /* I added bootstrap for testing, this messed up some formatting, 1rem aligns like rpeviously wanted*/
+    margin: 1rem;
+}
+
+p  {
+    color: var(--main-light);
+    margin: 1rem;
 }
 
 a {
     color: var(--opposite-dark);
     text-decoration: none;
+    margin: 1rem;
 }
 
-.dropdown-menu a {
-    display: block;
-    margin-top: 10px;
-}
-
-.dropdown-menu a:hover {
+a:hover {
     color: var(--main-dark);
-}
-
-h1 ~ p, h2 ~ p  {
-    color: var(--main-light);
-}
-
-.textarea-container p,
-.file-container p {
-    margin: 0 10px 0 0;
-    font-weight: bold;
 }
 
 time {
@@ -94,13 +87,12 @@ time {
 }
 
 .nav-container ul li a {
-    color: var(--opposite-light);
+    color: var(--main-dark);
     font-size: 1.1em;
 }
 
 .nav-container ul li a:hover {
-    background-color: var(--complement); 
-    color: var(--main-dark); 
+    color: var(--opposite-dark);
     text-decoration: none; 
 }
 
@@ -122,9 +114,7 @@ time {
 /*General empty column*/
 .column {
     flex: 1;
-    color: var(--main-light);
     padding: 10px;
-    border: 1px solid #FFFFFF;
 }
 
 /*Post and login page*/
@@ -157,7 +147,7 @@ time {
 .file-container {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    margin: 15px;
 }
 
 /* 6. Components */
@@ -169,10 +159,29 @@ time {
     border: 1px solid #ccc;
 }
 
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.post-image {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+}
+
+.like-button {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
 .nav-container {
     position: sticky;
     top: 0;
-    background-color: var(--main-dark);
+    background-color: var(--complement);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -193,13 +202,13 @@ time {
 }
 
 .login-container {
+    color: var(--main-dark);
     display: flex;
     align-items: center;
 }
 
 .bi-person-circle {
     font-size: 1.5em;
-    color: var(--opposite-light);
     cursor: pointer;
 }
 
@@ -227,79 +236,8 @@ time {
     padding: 3px;
 }
 
-.like-button {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.login-link {
-    color: var(--opposite-light);
-    display: flex;
-    align-items: center;
-}
-
-.user-icon {
-    color: var(--opposite-light);
-    margin-right: 1em;
-}
-
-.post-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-}
-
-.post-image {
-    max-width: 100%; 
-    height: auto; 
-    width: auto; 
-}
-
-#post-button {
-    width: 100%;
-    padding: 10px;
-    background-color: grey;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: not-allowed;
-    opacity: 0.5;
-    transition: background-color 0.3s ease, opacity 0.3s ease;
-    background-color: var(--main-dark);
-    cursor: pointer;
-    opacity: 1;
-    pointer-events: auto;
-}
-
-#post-button:hover {
-    background-color: var(--opposite-dark);
-}
-
-#file-button {
-    width: 100%;
-    padding: 10px;
-    background-color: var(--complement-unavailable);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: not-allowed;
-    opacity: 0.5;
-    transition: background-color 0.3s ease, opacity 0.3s ease;
-}
-
-.box > form > input { /* Use a Child Selector (e.g., div > p) */
-    border: 2px solid var(--main-darker);
-}
-.input-field + .input-field { /* Use an Adjacent Sibling Selector (e.g., div + p)*/
-    border-style: double;
-}
-
-#login-button {
-    width: 100%;
+.btn {
+    width: 90%;
     padding: 10px;
     background-color: var(--complement-unavailable);
     color: var(--complement);
@@ -308,7 +246,33 @@ time {
     font-size: 16px;
     cursor: pointer;
     opacity: 1;
+}
+
+#post-button {
+    cursor: not-allowed;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    background-color: var(--main-dark);
     pointer-events: auto;
+}
+
+#login-button {
+    pointer-events: auto;
+}
+
+#file-button {
+    cursor: not-allowed;
+    opacity: 0.5;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+#post-button:hover {
+    background-color: var(--opposite-dark);
+}
+
+.box > form > input { /* Use a Child Selector (e.g., div > p) */
+    border: 2px solid var(--main-darker);
+}
+.input-field + .input-field { /* Use an Adjacent Sibling Selector (e.g., div + p)*/
+    border-style: double;
 }
 
 input:valid ~ input:valid ~ #login-button {
