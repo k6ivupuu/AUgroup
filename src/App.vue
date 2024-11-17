@@ -2,17 +2,20 @@
 
 <template>
   <div id="app">
-    <MainHeader />  <!-- Add the header here -->
-    <router-view></router-view>
+    <MainHeader/>
+    <router-view/>
+    <MainFooter/>
   </div>
 </template>
 
 <script>
 import MainHeader from "@/components/Header.vue";
+import MainFooter from "@/components/Footer.vue";
 
 export default {
   name: 'App',
   components: {
+    MainFooter,
     MainHeader
   }
 }

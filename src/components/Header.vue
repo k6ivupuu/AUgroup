@@ -2,7 +2,7 @@
   <header>
     <nav class="nav-container">
       <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li><a href="addPost.html">Add Post</a></li>
       </ul>
       <div class="login-container">
