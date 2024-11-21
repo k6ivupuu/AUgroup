@@ -1,16 +1,19 @@
 import { createStore } from 'vuex'
+import postsData from '@/assets/data/posts.json'
 
 export default createStore({
     state: {
-        // your state properties here
+        posts: []
     },
     mutations: {
-        // your mutations here
+        setPosts(state, posts) {
+            state.posts = posts
+        }
     },
     actions: {
-        // your actions here
+        loadPosts({commit}) {
+            commit("setPosts", postsData.Posts)
+        }
     },
-    getters: {
-        // your getters here
-    }
+    getters: {}
 })

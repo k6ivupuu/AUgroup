@@ -8,7 +8,7 @@
       "content": "A great picture of Tartu town square.",
       "image": {
         "name": "tartu.jpg",
-        "src": "/src/assets/images/tartu.jpg"
+        "src": "@/assets/images/tartu.jpg"
       }
     },
     {

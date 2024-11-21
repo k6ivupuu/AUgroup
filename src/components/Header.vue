@@ -3,14 +3,14 @@
     <nav class="nav-container">
       <ul>
         <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/addPost.html">Add Post</router-link></li>
+        <li><router-link to="/addPost">Add Post</router-link></li>
       </ul>
       <div class="login-container" @click="handleLoginClick">
         <i class="bi-person-circle"></i>
         <div class="dropdown-menu" :class="{ 'show': isDropdownVisible }">
           <p>{{ user.name }}</p>
           <p>{{ user.email }}</p>
-          <router-link to="/signUp.html">Logout</router-link>
+          <router-link to="/login">Logout</router-link>
         </div>
       </div>
     </nav>

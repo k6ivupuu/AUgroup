@@ -2,29 +2,37 @@
 
 <template>
   <div class="home-page">
-    <h1>AU Group Vue project home page. Ta-daaa!</h1>
     <div class="content">
-      <p>This is content placeholder</p>
-      <div>
-        <postfeed-post postFeedComment="This is postFeedPosts message 1"/>
-        <postfeed-post postFeedComment="This is postFeedPosts message 2"/>
-        <postfeed-post postFeedComment="This is postFeedPosts message 3"/>
-        <postfeed-post postFeedComment="This is postFeedPosts message 4"/>
+      <div class="flex-container">
+        <div class="column"></div>
+        <post-feed/>
+        <div class="column"></div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import PostfeedPost from "@/components/post.vue";
+import PostFeed from "@/components/PostFeed.vue"
+import {useStore} from "vuex"
+import {onMounted} from "vue";
 
 export default {
   name: "HomePage",
-  components: {PostfeedPost},
-  data() {
+  components: {
+    PostFeed
+  },
+  setup: function () {
+    const store = useStore()
+
+    onMounted(() => {
+      store.dispatch('loadPosts')
+    })
+
     return {
-      message: "Hello World!"
+      store
     }
+
   },
   methods: {
     handleClick() {
@@ -43,10 +51,26 @@ export default {
   margin: 0;
   //padding: 10px;
 }
-
 .content {
   display: flex;
   flex: 1;
 }
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0;
+  width: 90%;
+  align-items: center;
+}
+
+.column {
+  flex: 1;
+  padding: 10px;
+  width: 90%;
+}
+
 
 </style>
