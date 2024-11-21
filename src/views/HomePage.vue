@@ -9,6 +9,14 @@
         <div class="column"></div>
       </div>
     </div>
+    <div>
+      <button
+          class="reset-button"
+          v-on:click="likeKiller"
+      >
+        Reset likes
+      </button>
+    </div>
   </div>
 </template>
 
@@ -22,15 +30,20 @@ export default {
   components: {
     PostFeed
   },
-  setup: function () {
+  setup() {
     const store = useStore()
 
     onMounted(() => {
       store.dispatch('loadPosts')
     })
 
+    const likeKiller = () => {
+      store.commit("likesResetter")
+    }
+
     return {
-      store
+      store,
+      likeKiller
     }
 
   },
@@ -72,5 +85,8 @@ export default {
   width: 90%;
 }
 
+.reset-button {
+  margin: 20px;
+}
 
 </style>

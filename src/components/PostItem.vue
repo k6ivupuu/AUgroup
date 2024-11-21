@@ -5,28 +5,53 @@
       <span> {{post.date}} </span>
     </div>
     <h1>{{post.title}}</h1>
-    <img class="post-image" v-if="post.image" :src="post.image.src" :alt="post.image.name">
+    <img
+        v-if="post?.image"
+        class="post-image"
+        :src="require('@/assets/images/' + post.image.name)"
+        :alt="post.image.name"
+    >
     <p>{{post.content}}</p>
     <div>
-      <button class="like-button" v-on:click="count++" >👍 {{count}} Likes</button>
+      <button
+          class="like-button"
+          v-on:click="likeHandler"
+      >
+        👍 {{ getLikes }} Likes
+      </button>
     </div>
   </div>
 </template>
 
 <script>
+  import {useStore} from "vuex";
+  import {computed} from "vue";
+
   export default {
     name: "PostItem",
     props: {
       post: {
         type: Object,
         require: true,
-        default: () => ({})  // Add a default empty object
+        default: () => ({})
       }
     },
-    data: function() {
-      return{
-        count: 0
+    setup(props) {
+      const store = useStore()
+
+      const getLikes = computed(() => {
+        return store.state.likes[props.post.id] || 0
+      })
+
+      const likeHandler = () => {
+        store.commit('likeCounter', props.post.id)
       }
+
+      return {
+        getLikes,
+        likeHandler
+      }
+
     }
   }
 </script>
@@ -34,6 +59,8 @@
 <style scoped>
 
 .postItem {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--main-darker);

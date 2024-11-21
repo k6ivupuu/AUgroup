@@ -32,7 +32,9 @@ export default {
 }
 </script>
 
-<style scoped>.postfeed {
+<style scoped>
+
+.postfeed {
   flex: 3;
   padding: 10px;
   align-items: center;
