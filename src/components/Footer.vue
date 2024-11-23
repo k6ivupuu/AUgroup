@@ -3,6 +3,11 @@
     <div class="footer-content">
       <div class="footer-section">
         <h3>About Us</h3>
+        <ul>
+          <li>Phone: +123-456-7890</li>
+          <li>Email: support@postit.com</li>
+          <li>Address: Narva mnt 18, Tartu</li>
+        </ul>
       </div>
       <div class="footer-section">
         <h3>Quick Links</h3>
@@ -14,7 +19,7 @@
     </div>
     <!-- Copyright Bar -->
     <div class="copyright">
-      <p>&copy; {{ currentYear }} Your Company Name. All rights reserved.</p>
+      <p>&copy; {{ currentYear }} PostIt. All rights reserved.</p>
     </div>
   </footer>
 </template>

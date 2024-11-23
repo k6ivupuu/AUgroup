@@ -6,7 +6,7 @@
       <div class="flex-container">
         <div class="column"></div>
         <div class="signup-box">
-          <h2>Welcome to PostIt</h2>
+          <h2>Welcome to PostIt!</h2>
           <p>Please enter your email and create a password to sign up.</p>
           <form @submit.prevent="handleSignup">
             <input
@@ -24,7 +24,7 @@
               required
             />
             <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
-            <button type="submit" id="signup-button">Sign Up</button>
+            <button type="submit" id="signup-button" :class="{ clicked: signupButtonClicked }" @click="handleSignup">Sign Up</button>
           </form>
         </div>
         <div class="column"></div>
@@ -49,7 +49,7 @@ export default {
       this.errorMessage = ""; 
       const validationErrors = this.validatePassword(this.password);
       if (validationErrors.length > 0) {
-        this.errorMessage = `The password is not valid for these given reasons =  ${validationErrors.join(", ")}`;
+        this.errorMessage = `The password is not valid for these given reasons:  ${validationErrors.join(", ")}`;
       } else {
         alert("Signup Successful!"); 
       }
@@ -122,13 +122,18 @@ export default {
   text-align: center;
 }
 
-.input-field {
-  width: 100%;
-  margin-bottom: 10px;
+.input-field, #signup-button {
+  width: 100%; 
+  box-sizing: border-box; 
   padding: 10px;
   font-size: 16px;
-  border: 1px solid var(--main-darker);
   border-radius: 5px;
+  border-radius: 5px;
+}
+
+.input-field {
+  margin-bottom: 10px;
+  border: 1px solid var(--main-darker);
 }
 
 .error-message {
@@ -138,14 +143,13 @@ export default {
 }
 
 #signup-button {
-  width: 100%;
-  padding: 10px;
   background-color: var(--main-dark);
   color: white;
   border: none;
-  border-radius: 5px;
-  font-size: 16px;
   cursor: pointer;
 }
 
+#signup-button:hover {
+  background-color: var(--main-light); 
+}
 </style>
