@@ -5,19 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="209202b0-eda2-4389-bacc-a4517bba7773" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frntend/src/assets/styles/variables.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frntend/src/components/Footer.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frntend/src/components/Header.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frntend/src/components/PostFeed.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frntend/src/components/PostItem.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frntend/src/router/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frntend/src/store/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frntend/src/views/AddPost.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frntend/src/views/HomePage.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frntend/src/views/SignUp.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/data/posts.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/atomic_habits.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/cosmic_perspective.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/digital_detox_guide.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/effective_meeting_checklist.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/space_exploration_timeline.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/tartu.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/styles/variables.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Footer.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Header.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/HelloWorld.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PostFeed.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PostItem.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/AddPost.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/HomePage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/SignUp.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +76,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "",
+    "git-widget-placeholder": "Merging main",
     "last_opened_file_path": "C:/Repos/k6ivupuu_wad",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -115,7 +133,7 @@
       <workItem from="1732651781804" duration="3232000" />
       <workItem from="1732984390481" duration="8591000" />
       <workItem from="1733772341517" duration="1174000" />
-      <workItem from="1733844708881" duration="12267000" />
+      <workItem from="1733844708881" duration="12813000" />
     </task>
     <servers />
   </component>
