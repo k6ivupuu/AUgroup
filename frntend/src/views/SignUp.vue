@@ -22,7 +22,7 @@
                 required
             />
             <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
-            <button type="submit" id="signup-button" :class="{ clicked: signupButtonClicked }" @click="handleSignup">Sign Up</button>
+            <button type="submit" id="signup-button">Sign Up</button>
           </form>
         </div>
         <div class="column"></div>
@@ -43,15 +43,6 @@ export default {
     };
   },
   methods: {
-    handleSignup() {
-      this.errorMessage = "";
-      const validationErrors = this.validatePassword(this.password);
-      if (validationErrors.length > 0) {
-        this.errorMessage = `The password is not valid for these given reasons:  ${validationErrors.join(", ")}`;
-      } else {
-        alert("Signup Successful!");
-      }
-    },
     validatePassword(password) {
       const errors = [];
       if (password.length < 8 || password.length > 15) {
@@ -73,6 +64,37 @@ export default {
         errors.push("Must start with an uppercase letter");
       }
       return errors;
+    },
+    handleSignup () {
+      this.errorMessage = "";
+      const validationErrors = this.validatePassword(this.password);
+
+      if (validationErrors.length > 0) {
+        this.errorMessage = `The password is not valid for these given reasons: ${validationErrors.join(", ")}`;
+        return;
+      }
+
+      var data = {
+        email: this.email,
+        password: this.password
+      };
+      fetch("http://localhost:3000/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        //credentials: 'include',
+        body: JSON.stringify(data),
+      })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            this.$router.push("/");
+          })
+          .catch((e) => {
+            console.log(e);
+            console.log("error");
+          });
     },
   }
 }

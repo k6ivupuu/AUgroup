@@ -12,16 +12,19 @@
     "predeploy": "vue-cli-service build"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "bootstrap-icons": "^1.11.3",
+    "cookie-parser": "^1.4.7",
     "core-js": "^3.8.3",
-    "json-server": "^1.0.0-beta.3",
-    "vue": "^3.2.13",
-    "vue-router": "^4.4.5",
-    "vuex": "^4.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "pg": "^8.13.1"
+    "json-server": "^1.0.0-beta.3",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.13.1",
+    "vue": "^3.2.13",
+    "vue-router": "^4.4.5",
+    "vuex": "^4.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

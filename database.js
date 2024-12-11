@@ -10,17 +10,20 @@ const pool = new Pool({
 });
 
 const execute = async(query) => {
+    //set a client to get a connection;
+    const client = await pool.connect();
     try {
-        await pool.connect(); // gets connection
-        await pool.query(query); // sends queries
+        await client.query(query);
         return true;
     } catch (error) {
         console.error(error.stack);
         return false;
+    } finally {
+        client.release(); // Missing from practicals - release the connection back to the pool
     }
 };
 
-const createTblQuery = `
+const createPostTableQuery  = `
     CREATE TABLE IF NOT EXISTS "posttable" (
 	    "id" SERIAL PRIMARY KEY,         
 	    "title" VARCHAR(200) NOT NULL,
@@ -28,11 +31,26 @@ const createTblQuery = `
         "urllink" VARCHAR(200)  
     );`;
 
-// A function to execute the previous query
-execute(createTblQuery).then(result => {
-    if (result) {
-        console.log('If does not exists, create the "posttable" table');
+const createUsersTableQuery = `
+    CREATE TABLE IF NOT EXISTS "users" (
+        id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+        email VARCHAR(200) NOT NULL UNIQUE,
+        password VARCHAR(200) NOT NULL 
+    );`;
+
+const initializeTables = async () => {
+    const postsResult = await execute(createPostTableQuery);
+    if (postsResult) {
+        console.log('Table "posttable" is created');
     }
+
+    const usersResult = await execute(createUsersTableQuery);
+    if (usersResult) {
+        console.log('Table "users" is created');
+    }
+}
+initializeTables().catch(error => {
+    console.error('Error initializing tables:', error);
 });
 
 module.exports = pool;
