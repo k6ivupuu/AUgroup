@@ -30,6 +30,9 @@ const generateJWT = (id) => {
 //'''''''''''''''''
 //  Handling HTTP requests code will go here
 
+//Authentication check:
+
+
 //Signing Up
 app.post('/auth/signup', async(req, res) => {
     try {
@@ -46,14 +49,14 @@ app.post('/auth/signup', async(req, res) => {
         );
         console.log(authUser.rows[0].id);
         const token = await generateJWT(authUser.rows[0].id); // generates a JWT by taking the user id as an input (payload)
-        //console.log(token);
+        console.log(token);
         //res.cookie("isAuthorized", true, { maxAge: 1000 * 60, httpOnly: true });
         //res.cookie('jwt', token, { maxAge: 6000000, httpOnly: true });
         res
             .status(201)
             .cookie('jwt', token, { maxAge: 6000000, httpOnly: true })
             .json({ user_id: authUser.rows[0].id })
-            .send;
+            //.send;
     } catch (err) {
         console.error(err.message);
         res.status(400).send(err.message);

@@ -5,6 +5,7 @@
         <li><router-link to="/">Home</router-link></li>
         <li><router-link to="/addPost">Add Post</router-link></li>
         <li><router-link to="/signup">Signup</router-link></li>
+        <li><router-link to="/About">About</router-link></li>
       </ul>
       <div class="login-container" @click="handleLoginClick">
         <i class="bi-person-circle"></i>
