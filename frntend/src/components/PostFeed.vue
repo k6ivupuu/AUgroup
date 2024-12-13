@@ -22,8 +22,8 @@ export default {
     const store = useStore()
 
     const posts = computed(() => {
-      console.log("am I getting posts?")
-      console.log(store.state.posts)
+      //console.log("am I getting posts?")
+      //console.log(store.state.posts)
       return store.state.posts
     })
 

@@ -4,15 +4,25 @@
       <ul>
         <li><router-link to="/">Home</router-link></li>
         <li><router-link to="/addPost">Add Post</router-link></li>
+        <li><router-link to="/login">Login</router-link></li>
         <li><router-link to="/signup">Signup</router-link></li>
         <li><router-link to="/About">About</router-link></li>
       </ul>
       <div class="login-container" @click="handleLoginClick">
         <i class="bi-person-circle"></i>
         <div class="dropdown-menu" :class="{ 'show': isDropdownVisible }">
-          <p>{{ user.name }}</p>
-          <p>{{ user.email }}</p>
-          <router-link to="/SignUp">Logout</router-link>
+          <template v-if="authResult">
+            <p>{{ user.name }}</p>
+            <p>{{ user.email }}</p>
+            <div>
+              <router-link to="/" @click="Logout">Logout</router-link>
+            </div>
+          </template>
+          <template v-else>
+            <div>
+              <router-link to="/login">Login</router-link>
+            </div>
+          </template>
         </div>
       </div>
     </nav>
@@ -20,14 +30,44 @@
 </template>
 
 <script>
+import auth from "@/auth";
+import {onMounted, ref} from "vue";
 export default {
   name: 'MainHeader',
   data() {
     return {
       isDropdownVisible: false,
       user: {
-        name: 'John Doe',
-        email: 'john.doe@ut.ee'
+        name: 'Name Not Implemented',
+        email: 'XXX'
+      }
+    }
+  },
+  setup() {
+    const authResult = ref(false)
+
+    const checkAuth = async () => {
+      authResult.value = await auth.authenticated()
+    }
+
+    onMounted(() => {
+      checkAuth()
+    })
+
+    return {
+      authResult
+    }
+  },
+
+  watch: {
+    authResult: {
+      immediate: true,
+      handler(newVal) {
+        if (newVal) {
+          this.fetchUserData();
+        } else {
+          this.user.email = '__';
+        }
       }
     }
   },
@@ -40,6 +80,24 @@ export default {
     document.removeEventListener('click', this.handleOutsideClick)
   },
   methods: {
+    Logout() {
+      fetch("http://localhost:3000/auth/logout", {
+        credentials: 'include', //  Don't forget to specify this if you need cookies
+      })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            console.log('jwt removed');
+            //console.log('jwt removed:' + auth.authenticated());
+            this.$store.dispatch('clearAllPosts');
+            this.$router.push("/login");
+            //location.assign("/");
+          })
+          .catch((e) => {
+            console.log(e);
+            console.log("error logout");
+          });
+    },
     handleLoginClick(event) {
       // Only toggle if clicking on the person icon
       if (event.target.closest('.bi-person-circle')) {
@@ -51,7 +109,21 @@ export default {
       if (!event.target.closest('.login-container')) {
         this.isDropdownVisible = false
       }
-    }
+    },
+    async fetchUserData() {
+      //console.log("this is for fetching")
+      try {
+        const response = await fetch('http://localhost:3000/api/user', {
+          credentials: "include"
+        });
+        if (response.ok) {
+          const userData = await response.json();
+          this.user.email = userData.email;
+        }
+      } catch (error) {
+        console.error('Error fetching data: ', error)
+      }
+    },
   }
 }
 </script>

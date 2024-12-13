@@ -2,10 +2,13 @@
   <div class="home-page">
     <div class="content">
       <div class="flex-container">
-        <post-feed/>
-        <p>
-          Text
-        </p>
+        <div>
+          <button v-if = "authResult" @click="Logout" class="center">Logout</button>
+        </div>
+        <post-feed v-if="authResult"/>
+        <div v-else>
+          <p>Please log in to see posts</p>
+        </div>
       </div>
     </div>
   </div>
@@ -13,8 +16,10 @@
 
 <script>
 
+
+import auth from "../auth";
 import PostFeed from "@/components/PostFeed.vue"
-import {onMounted} from "vue";
+import {onMounted, ref} from "vue";
 import {useStore} from "vuex";
 
 export default {
@@ -24,17 +29,47 @@ export default {
   },
   setup() {
     const store = useStore()
+    const authResult = ref(false)
+
+    const checkAuth = async () => {
+      authResult.value = await auth.authenticated()
+      if (authResult.value) {
+        store.dispatch("loadPosts")
+      } else {
+        store.dispatch('clearAllPosts')
+      }
+    }
 
     onMounted(() => {
-      store.dispatch('loadPosts')
+      checkAuth()
     })
 
     return {
-      store
+      store,
+      authResult
     }
 
   },
-  methods: {}
+  methods: {
+    Logout() {
+      fetch("http://localhost:3000/auth/logout", {
+        credentials: 'include', //  Don't forget to specify this if you need cookies
+      })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            console.log('jwt removed');
+            this.$store.dispatch('clearAllPosts');
+            //console.log('jwt removed:' + auth.authenticated());
+            this.$router.push("/login");
+            //location.assign("/");
+          })
+          .catch((e) => {
+            console.log(e);
+            console.log("error logout");
+          });
+    },
+  }
 }
 </script>
 

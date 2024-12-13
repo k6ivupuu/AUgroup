@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="209202b0-eda2-4389-bacc-a4517bba7773" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frntend/src/views/About.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frntend/src/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frntend/src/components/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frntend/src/components/Header.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frntend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frntend/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frntend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frntend/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frntend/src/components/PostFeed.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frntend/src/components/PostFeed.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frntend/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frntend/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frntend/src/views/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frntend/src/views/HomePage.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

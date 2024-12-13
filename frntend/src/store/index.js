@@ -1,4 +1,8 @@
 import { createStore } from 'vuex';
+import auth from "@/auth";
+
+//We need a functionality here to check for authentication before loading posts,
+//    although it is currently checking on homepage against authentication.
 
 export default createStore({
     state: {
@@ -12,6 +16,9 @@ export default createStore({
         setPosts(state, posts) {
             state.posts = posts
         },
+        clearPosts(state) {
+          state.posts = []
+        },
         likeCounter(state, postId) {
             if (!state.likes[postId]) {
                 state.likes[postId] = 0
@@ -21,12 +28,24 @@ export default createStore({
     },
     actions: {
         loadPosts({commit}) {
-            fetch(`http://localhost:3000/api/posts/`)
+            if (!auth.authenticated()) {
+                commit('clearPosts');
+                return;
+            }
+            fetch(`http://localhost:3000/api/posts/`, {
+                credentials: "include"
+            })
                 .then((response) => response.json())
                 .then(data => {
                     commit('setPosts', data)
                 })
-                .catch((err) => console.log(err.message));
+                .catch((err) => {
+                    console.log(err.message);
+                    commit('clearPosts')
+                });
+        },
+        clearAllPosts({commit}) {
+            commit('clearPosts');
         }
     },
     modules: {
