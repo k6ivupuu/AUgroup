@@ -4,10 +4,8 @@
         <div class="flex-container">
           <div class="column"></div>
           <div class="post-box">
-            <!-- Dynamically render the post title -->
             <h2 v-if="post">{{ post.title }}</h2>
-            <h2 v-else>Loading...</h2>
-  
+            <h2 v-else>Loading...</h2>  
             <div class="form-group" v-if="post">
               <label for="body">Body:</label>
               <textarea
@@ -17,13 +15,9 @@
                 class="input-field"
               ></textarea>
             </div>
-  
-            <!-- Loading message if post not loaded -->
             <div v-else>
               <p>Loading post details...</p>
             </div>
-  
-            <!-- Update and delete buttons -->
             <div class="actions" v-if="post">
               <button class="update-button" @click="updatePost">Update</button>
               <button class="delete-button" @click="deletePost">Delete</button>
@@ -140,7 +134,7 @@
     width: 90%;
   }
   
-  /* Post box styling */
+  
   .post-box {
     display: flex;
     flex-direction: column;
