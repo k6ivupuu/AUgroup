@@ -165,6 +165,7 @@ export default {
   color: var(--main-dark);
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .bi-person-circle {
@@ -175,13 +176,31 @@ export default {
 .dropdown-menu {
   display: none;
   position: absolute;
+  top: 35px;
   right: 0;
   background: white;
   padding: 1rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  font-size: 1.2em;
+  border-radius: 8px;
+  z-index: 1000;
 }
 
 .dropdown-menu.show {
   display: block;
+}
+.dropdown-menu p {
+  margin: 0 0 10px; /* Add space between lines */
+}
+
+.dropdown-menu a {
+  color: var(--main-dark);
+  font-size: 1em;
+  text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+  color: var(--opposite-dark);
+  text-decoration: underline;
 }
 </style>
