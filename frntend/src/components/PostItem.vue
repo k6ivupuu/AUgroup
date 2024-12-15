@@ -2,7 +2,8 @@
   <div class="postItem" @click="handleClick">
     <div class="post-header">
       <span class="post-icon">👤</span>
-      <span class="post-user"> {{ post.userName || "Unknown User" }} </span>
+      <span class="post-user"> {{"User" }} </span>
+      <span class="post-date">{{ formatDate(post.date) }}</span>
     </div>
     <h3 class="post-title"> {{ post.title }} </h3>
     <div class="post-body">
@@ -42,11 +43,16 @@ export default {
       console.log("Post clicked:", props.post.id); 
       emit("clickPost", props.post.id); //$emit to notify the parent
     };
+    const formatDate = (date) => {
+      if (!date) return "Unknown date";
+      return new Date(date).toLocaleString();
+    };
 
     return {
       getLikes,
       likeHandler,
       handleClick,
+      formatDate,
     }
 
   }
@@ -73,8 +79,9 @@ export default {
 
 .post-header {
   display: flex;
-  align-items: center; /* Aligns icon and name vertically */
-  gap: 10px; /* Adds spacing between the icon and name */
+  justify-content: space-between;
+  align-items: center; 
+  gap: 10px; 
   margin-bottom: 10px;
 }
 
@@ -89,7 +96,7 @@ export default {
 }
 
 .post-title {
-  text-align: center; /* Centers the title */
+  text-align: center; 
   font-size: 1.5em;
   font-weight: bold;
   color: #333;
@@ -100,6 +107,11 @@ export default {
   margin-top: 5px;
   font-size: 1em;
   color: #666;
+}
+.post-date {
+  font-size: 0.9em;
+  color: darkblue;
+  margin-left: auto;
 }
 
 .post-body p {

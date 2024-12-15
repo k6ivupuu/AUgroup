@@ -90,6 +90,7 @@ export default {
         title: this.post.title,
         body: this.post.body,
         urllink: this.post.urllink,
+        date: new Date().toISOString(),
       };
       fetch("http://localhost:3000/api/posts", {
         method: "POST",
