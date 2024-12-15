@@ -4,6 +4,7 @@
         v-for="post in posts"
         :key="post.id"
         :post="post"
+        @clickPost="handlePostClick"
     />
   </div>
 </template>
@@ -11,6 +12,7 @@
 <script>
 import {useStore} from "vuex";
 import {computed} from "vue";
+import { useRouter } from "vue-router";
 import PostItem from "@/components/PostItem.vue";
 
 export default {
@@ -20,6 +22,7 @@ export default {
   },
   setup() {
     const store = useStore()
+    const router = useRouter();
 
     const posts = computed(() => {
       //console.log("am I getting posts?")
@@ -27,10 +30,25 @@ export default {
       return store.state.posts
     })
 
+     // Define the handlePostClick method inside the setup function
+     const handlePostClick = (postId) => {
+      console.log("Post clicked with ID:", postId);
+      // Navigate to the "A Post" page
+      router.push({ name: "PostDetails", params: { id: postId } });
+    };
+
     return {
-      posts
+      posts,
+      handlePostClick
+
     }
+
+    
+  
+    
   }
+  
+
 }
 </script>
 

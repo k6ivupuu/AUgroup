@@ -1,5 +1,5 @@
 <template>
-  <div class="postItem">
+  <div class="postItem" @click="handleClick">
     <div class="post-header">
       <span style="font-size: 24px;">👤</span>
       <span> {{post.title}} </span>
@@ -22,7 +22,7 @@ export default {
       default: () => ({})
     }
   },
-  setup(props) {
+  setup(props, { emit }) {
     const store = useStore()
 
     const getLikes = computed(() => {
@@ -33,9 +33,15 @@ export default {
       store.commit('likeCounter', props.post.id)
     }
 
+    const handleClick = () => { 
+      console.log("Post clicked:", props.post.id); 
+      emit("clickPost", props.post.id); //$emit to notify the parent
+    };
+
     return {
       getLikes,
-      likeHandler
+      likeHandler,
+      handleClick,
     }
 
   }
@@ -44,12 +50,17 @@ export default {
 
 <style scoped>
 
+.postItem:hover {
+  background-color: #f9f9f9; 
+}
+
 .postItem {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--main-darker);
+  cursor: pointer;
 }
 
 .post-header {

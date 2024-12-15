@@ -4,6 +4,7 @@ import SignUp from "@/views/SignUp.vue";
 import AddPost from "@/views/AddPost.vue";
 import Login from "@/views/Login.vue";
 import About from "@/views/About.vue";
+import PostDetails from "@/views/PostDetails.vue";
 
 const routes = [
     {
@@ -35,6 +36,12 @@ const routes = [
         path: "/api/addpost",
         name: "AddPost",
         component: AddPost,
+    },
+    { //route to postdetails
+        path: "/post/:id",
+        name: "PostDetails",
+        component: PostDetails,
+        props: true,
     },
 ]
 
