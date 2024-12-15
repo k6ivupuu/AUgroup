@@ -193,7 +193,7 @@ label {
   padding: 10px 20px;
   margin-top: 20px;
   color: white;
-  border-radius: 20px;
+  border-radius: 5px;
   cursor: pointer;
   align-items: center;
   text-align: center;

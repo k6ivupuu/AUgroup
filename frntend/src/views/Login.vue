@@ -165,7 +165,7 @@ label {
   border: 0;
   padding: 10px 20px;
   color: white;
-  border-radius: 20px;
+  border-radius: 5px;
   cursor: pointer;
   flex: 1;
   text-align: center;

@@ -5,10 +5,11 @@
         <div>
           <button v-if = "authResult" @click="Logout" class="center">Logout</button>
           <button v-if="authResult" @click="deleteAllPosts" class="center">Delete All</button>
+          <button v-if="authResult" @click="navigateToAddPost" class="center">Add Post</button>
         </div>
         <post-feed v-if="authResult"/>
         <div v-else>
-          <p>Please log in to see posts</p>
+          <h1>Please log in to see posts</h1>
         </div>
       </div>
     </div>
@@ -74,8 +75,9 @@ export default {
       console.log("Delete All button clicked"); // Debugging log
       this.$store.dispatch("clearAllPosts");
     },
-    
-
+    navigateToAddPost() {
+      this.$router.push("/addpost");
+    }
   }
 }
 </script>
