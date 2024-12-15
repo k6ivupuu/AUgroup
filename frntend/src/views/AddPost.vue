@@ -1,20 +1,63 @@
 <template>
-  <div>
-    <h1>Adding a post functionality on this page</h1>
-    <div class="form">
-      <h3>Add a Post</h3>
-      <label for="title">Title: </label>
-      <input name="title" type="text" id="title" required v-model="post.title" />
-      <label for="body">Body: </label>
-      <input name="body" type="text" id="body" required v-model="post.body" />
-      <label for="urllink">Url: </label>
-      <input name="urllink"  type="text" id="urllink" required v-model="post.urllink"/>
-      <button @click="addPost" class="addPost">Add Post</button>
+  <div class="addpost-page">
+    <div class="content">
+      <div class="flex-container">
+        <div class="column"></div>
+        <div class="addpost-box">
+          <h2>Add a Post</h2>
+          <p v-if="authResult">
+            Fill out the form below to add a new post.
+          </p>
+          <p v-else>
+            Please log in to add a post.
+          </p>
+          <div v-if="authResult" class="form">
+            <label for="title">Title</label>
+            <input
+              name="title"
+              type="text"
+              id="title"
+              required
+              v-model="post.title"
+              class="input-field"
+              placeholder="Post Title"
+            />
+            
+            <label for="body">Body</label>
+            <input
+              name="body"
+              type="text"
+              id="body"
+              required
+              v-model="post.body"
+              class="input-field"
+              placeholder="Post Body"
+            />
+
+            <label for="urllink">URL</label>
+            <input
+              name="urllink"
+              type="text"
+              id="urllink"
+              required
+              v-model="post.urllink"
+              class="input-field"
+              placeholder="https://example.com"
+            />
+
+            <button @click="addPost" id="addpost-button">Add Post</button>
+          </div>
+        </div>
+        <div class="column"></div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import auth from "@/auth";
+import { ref, onMounted } from "vue";
+
 export default {
   name: "AddPost",
   data() {
@@ -22,18 +65,32 @@ export default {
       post: {
         title: "",
         body: "",
-        urllink: "",
-      },
+        urllink: ""
+      }
     }
+  },
+  setup() {
+    const authResult = ref(false);
+
+    const checkAuth = async () => {
+      authResult.value = await auth.authenticated();
+    };
+
+    onMounted(() => {
+      checkAuth();
+    });
+
+    return {
+      authResult
+    };
   },
   methods: {
     addPost() {
-      var data = {
+      const data = {
         title: this.post.title,
         body: this.post.body,
         urllink: this.post.urllink,
       };
-      // using Fetch - post method - send an HTTP post request to the specified URI with the defined body
       fetch("http://localhost:3000/api/posts", {
         method: "POST",
         headers: {
@@ -41,60 +98,109 @@ export default {
         },
         body: JSON.stringify(data),
       })
-          .then((response) => {
-            console.log(response.data);
-            this.$router.push("/");
-          })
-          .catch((e) => {
-            console.log(e);
-            console.log("error");
-          });
+        .then((response) => {
+          console.log(response.data);
+          this.$router.push("/");
+        })
+        .catch((e) => {
+          console.log(e);
+          console.log("error");
+        });
     },
   },
 };
 </script>
 
 <style scoped>
+.addpost-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0;
+  width: 90%;
+  align-items: center;
+}
+
+.column {
+  flex: 1;
+  padding: 10px;
+  width: 90%;
+}
+
+.addpost-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--complement);
+  border-radius: 10px;
+  padding: 40px 30px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  max-width: 90%;
+  text-align: center;
+}
+
+.addpost-box h2 {
+  margin-bottom: 10px;
+}
+
+.addpost-box p {
+  margin-bottom: 20px;
+}
 
 .form {
-  max-width: 420px;
-  margin: 30px auto;
-  background: rgb(167, 154, 154);
+  width: 100%;
   text-align: left;
-  padding: 40px;
-  border-radius: 10px;
 }
-h3 {
-  text-align: center;
-  color: rgb(8, 110, 110);
-}
+
 label {
   color: rgb(8, 110, 110);
   display: inline-block;
-  margin: 25px 0 15px;
+  margin: 15px 0 5px;
   font-size: 0.8em;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: bold;
 }
-input {
+
+.input-field {
   display: block;
   padding: 10px 6px;
   width: 100%;
   box-sizing: border-box;
-  border: none;
-  border-bottom: 1px solid white;
-  color: blue;
+  border: 1px solid var(--main-darker);
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
-button {
-  background: rgb(8, 110, 110);
+
+#addpost-button {
+  background: var(--main-dark);
   border: 0;
   padding: 10px 20px;
   margin-top: 20px;
   color: white;
   border-radius: 20px;
+  cursor: pointer;
   align-items: center;
   text-align: center;
+  width: 100%;
 }
 
+#addpost-button:hover {
+  background-color: var(--main-light);
+}
 </style>
