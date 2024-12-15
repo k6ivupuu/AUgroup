@@ -44,10 +44,30 @@ export default createStore({
                     commit('clearPosts')
                 });
         },
-        clearAllPosts({commit}) {
-            commit('clearPosts');
-        }
+        clearAllPosts({ commit }) {
+            console.log("clearAllPosts action dispatched"); // Debug
+    
+            fetch(`http://localhost:3000/api/posts`, {
+                method: 'DELETE',
+                credentials: "include" 
+            })
+            .then(async (response) => {
+                console.log("Response from DELETE request:", response.status); // Log the response status
+    
+                if (response.ok) {
+                    commit('clearPosts'); // Clear Vuex state
+                    console.log("All posts cleared from the database and Vuex state");
+                } else {
+                    const errorMessage = await response.text();
+                    console.error("Failed to delete posts, response text:", errorMessage);
+                }
+            })
+            .catch(err => {
+                console.error("Failed to send DELETE request:", err.message); // Catch errors
+            });
+        },
     },
+
     modules: {
     }
 })

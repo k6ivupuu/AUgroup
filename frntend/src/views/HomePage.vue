@@ -4,6 +4,7 @@
       <div class="flex-container">
         <div>
           <button v-if = "authResult" @click="Logout" class="center">Logout</button>
+          <button v-if="authResult" @click="deleteAllPosts" class="center">Delete All</button>
         </div>
         <post-feed v-if="authResult"/>
         <div v-else>
@@ -69,6 +70,12 @@ export default {
             console.log("error logout");
           });
     },
+    deleteAllPosts() {
+      console.log("Delete All button clicked"); // Debugging log
+      this.$store.dispatch("clearAllPosts");
+    },
+    
+
   }
 }
 </script>

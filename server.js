@@ -196,6 +196,18 @@ app.put('/api/posts/:id', async(req, res) => {
     }
 });
 
+app.delete('/api/posts', async (req, res) => {
+    try {
+        console.log("delete all posts request has arrived"); // Debugging log
+        await pool.query("DELETE FROM posttable"); // Delete all rows from the table
+        res.status(200).json({ message: "All posts deleted" });
+    } catch (err) {
+        console.error("Database error during delete:", err.message);
+        res.status(500).json({ error: "Failed to delete posts" });
+    }
+});
+
+
 //Delete a post from database
 app.delete('/api/posts/:id', async(req, res) => {
     try {
